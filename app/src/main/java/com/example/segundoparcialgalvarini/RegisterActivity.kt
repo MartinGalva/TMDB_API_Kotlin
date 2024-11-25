@@ -22,20 +22,22 @@ class RegisterActivity : AppCompatActivity() {
         btAct = findViewById(R.id.bt_save)
 
         btAct.setOnClickListener {
-            if (etUser.text.isNullOrEmpty() && etPass.text.isNullOrEmpty()) {
+            val userName = etUser.text.toString()
+            val password = etPass.text.toString()
+
+            if (userName.isEmpty() && password.isEmpty()) {
                 Toast.makeText(this, "Ingrese un user y password", Toast.LENGTH_SHORT).show()
             } else {
-                val userName = etUser.text.toString()
-                val password = etPass.text.toString()
-
                 val preferences = getSharedPreferences("loginPref", MODE_PRIVATE)
-                val editor = preferences.edit()
-                editor.putString("name", userName)
-                editor.putString("pass", password)
-                editor.apply()
+                preferences.edit().apply {
+                    putString("name", userName)
+                    putString("pass", password)
+                    apply()
+                }
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         }
     }

@@ -51,31 +51,3 @@ class Adapter(val context: Context) : ListAdapter<Movie, Adapter.ViewHolder>(Dif
         }
     }
 }
-
-
-
-//class Adapter(private val images: List<String>): RecyclerView.Adapter<Adapter.ViewHolder>() {
-//    inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-//        private val imageView: ImageView = view.findViewById(R.id.imageView)
-//        private val tvMovieTitle: TextView = view.findViewById(R.id.tv_movieTitle)
-//
-//        fun bind(image: String) {
-//            Picasso.get().load(image).into(imageView)
-//            tvMovieTitle.text = "Movie"
-//        }
-//    }
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        val layoutInflater = LayoutInflater.from(parent.context)
-//        return ViewHolder(layoutInflater.inflate(R.layout.item_list, parent, false))
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return images.size
-//    }
-//
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        val image = images[position]
-//        holder.bind(image)
-//    }
-//}
